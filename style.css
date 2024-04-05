@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
 body {
     font-family: Montserrat, Arial, sans-serif;
@@ -78,4 +78,42 @@ button, input {
     padding: 0.5rem 1.75rem;
     width: inherit;
     margin: 0 auto;
+}
+
+.events-list {
+    padding: 3.125rem 1.25rem;
+}
+
+.event {
+    background-color: #F1D4D4;
+    padding: 0.625rem;
+    box-sizing: border-box;
+    margin-bottom: 0.625rem;
+    border-radius: 10px;
+}
+
+.event__title {
+    font-weight: 400;
+    margin: 0;
+}
+
+.event__date {
+    font-size: 0.875rem;
+}
+
+.event__time-container {
+    text-align: center;
+    background-color: #000;
+    color: #F1D4D4;
+    border-radius: 10px;
+    padding: 0.5rem 0.5rem 0;
+    margin-top: 0.25rem;
+}
+
+.event__big-date {
+    font-size: 1.25rem;
+}
+
+.event__small-date {
+    font-size: 3rem;
 }

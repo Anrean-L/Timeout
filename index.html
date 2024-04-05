@@ -11,7 +11,7 @@
 
 <body>
     <main>
-        <div class="add-event add-event--opened">
+        <div class="add-event">
             <button class="add-event__button" aria-label="кнопка для добавления нового события"
                 onclick="this.parentNode.classList.toggle('add-event--opened')">
                 <img src="imgs/plus.svg" alt="значок плюсика">
@@ -27,6 +27,25 @@
                 </label>
                 <input type="submit" class="add-event__input add-event__submit" value="создать">
             </form>
+        </div>
+
+        <div class="events-list">
+            <div class="events-list__item event">
+                <h2 class="event__title">Название события</h2>
+                <time class="event__date" datetime="2024-04-15T00:00:00+05:00">15.04.2024 00:00</time>
+                <div class="event__time-container">
+                    <div class="event__big-date">9 дней</div>
+                    <div class="event__small-date">06:26:20</div>
+                </div>
+            </div>
+            <div class="events-list__item event">
+                <h2 class="event__title">Название события</h2>
+                <time class="event__date" datetime="2025-01-01T00:00:00+05:00">01.01.2025 00:00</time>
+                <div class="event__time-container">
+                    <div class="event__big-date">8 месяцев 26 дней</div>
+                    <div class="event__small-date">09:16:35</div>
+                </div>
+            </div>
         </div>
     </main>
 </body>
