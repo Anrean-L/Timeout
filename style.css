@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+body {
+    font-family: Montserrat, Arial, sans-serif;
+    background-color: #000;
+    margin: 0;
+    min-height: 100vh;
+    font-weight: regular;
+}
+
+button, input {
+    font-family: inherit;
+}
+
+.add-event__button {
+    position: fixed;
+    top: -5.625rem;
+    right: calc(50% - 2.5rem);
+    height: 5rem;
+    width: 5rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: #C060A1;
+    transition: top .4s ease-in-out;
+}
+
+.add-event__button img {
+    transition: transform .4s ease-in-out;
+}
+
+.add-event {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 4.2rem 2.375rem 2.375rem;
+    background-color: #F1D4D4;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform .4s ease-in-out;
+    border-radius: 30px 30px 0 0;
+}
+
+.add-event--opened {
+    transform: translateY(0);
+}
+
+.add-event--opened .add-event__button {
+    top: -2.5rem;
+}
+
+.add-event--opened .add-event__button img {
+    transform: rotate(45deg);
+}
+
+.add-event__label {
+    display: block;
+}
+
+.add-event__label:not(:last-child) {
+    margin-bottom: 1.4375rem;
+}
+
+.add-event__input {
+    background-color: #6A097D;
+    font-size: 1.25rem;
+    color: #FFF;
+    display: block;
+    padding: 1.375rem 0.75rem;
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color-scheme: dark;
+    margin-top: 0.75rem;
+}
+
+.add-event__submit {
+    padding: 0.5rem 1.75rem;
+    width: inherit;
+    margin: 0 auto;
+}
