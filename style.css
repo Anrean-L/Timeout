@@ -10,6 +10,13 @@ body {
 
 button, input {
     font-family: inherit;
+    cursor: pointer;
+}
+
+main {
+    max-width: 40rem;
+    margin: 0 auto;
+    position: relative;
 }
 
 .add-event__button {
@@ -32,7 +39,7 @@ button, input {
 .add-event {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: min(100%, 40rem);
     padding: 4.2rem 2.375rem 2.375rem;
     background-color: #F1D4D4;
     box-sizing: border-box;
