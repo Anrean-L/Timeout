@@ -14,6 +14,7 @@ form.addEventListener('submit', (e) => {
     });
     localStorage.setItem('events', JSON.stringify(eventsList));
     form.parentNode.classList.toggle('add-event--opened');
+    document.getElementsByClassName('events-list')[0].innerHTML = ''
     renderEvents();
 });
 
@@ -22,19 +23,21 @@ function renderEvents() {
     eventsList.forEach((item, index) => {
         let date = new Date(item.date);
         let distinction = new Date(date - new Date());
+        distinction.setHours(distinction.getHours(), distinction.getMinutes() + distinction.getTimezoneOffset());
         document.getElementsByClassName('events-list')[0].insertAdjacentHTML('beforeend', `
     <div class="events-list__item event">
         <h2 class="event__title">${item.title}</h2>
         <time class="event__date" datetime="2025-01-01T00:00:00+05:00">${date.toLocaleString()}</time>
         <div class="event__time-container">
-            ${distinction >= 86400000 || distinction <= -86400000 ? `<div class="event__big-date">${((date - now) / 86400000).toFixed(0)} дней</div>` : '<div class="event__big-date"></div>'}
+            ${distinction >= 86400000 || distinction <= -86400000 ? `<div class="event__big-date">${(distinction / 86400000).toFixed(0)} дней</div>` : '<div class="event__big-date"></div>'}
             <div class="event__small-date">${distinction.toLocaleTimeString()}</div>
         </div>
     </div>`);
         setInterval(() => {
             let distinction = new Date(date - new Date());
+            distinction.setHours(distinction.getHours(), distinction.getMinutes() + distinction.getTimezoneOffset());
             document.getElementsByClassName('event__small-date')[index].innerHTML = distinction.toLocaleTimeString();
-            document.getElementsByClassName('event__big-date')[index].innerHTML = distinction >= 86400000 || distinction <= -86400000 ? `<div class="event__big-date">${((date - now) / 86400000).toFixed(0)} дней</div>` : '';
+            document.getElementsByClassName('event__big-date')[index].innerHTML = +distinction >= 86400000 || +distinction <= -86400000 ? (distinction / 86400000).toFixed(0) + ' дней' : '';
         }, 1000);
     });
 }

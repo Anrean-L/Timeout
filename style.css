@@ -101,7 +101,7 @@ main {
 
 .event__title {
     font-weight: 400;
-    margin: 0;
+    margin: 5px 0;
 }
 
 .event__date {
