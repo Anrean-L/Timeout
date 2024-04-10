@@ -21,25 +21,28 @@ form.addEventListener('submit', (e) => {
 function renderEvents() {
     let eventsList = JSON.parse(localStorage.getItem('events')) || [];
     eventsList.forEach((item, index) => {
-        let date = new Date(item.date);
-        let distinction = new Date(date - new Date());
+        let date = Date.parse(item.date);
+        let distinction = new Date(Math.abs(date - Date.now()));
         distinction.setHours(distinction.getHours(), distinction.getMinutes() + distinction.getTimezoneOffset());
         document.getElementsByClassName('events-list')[0].insertAdjacentHTML('beforeend', `
     <div class="events-list__item event">
         <h2 class="event__title">${item.title}</h2>
-        <time class="event__date" datetime="2025-01-01T00:00:00+05:00">${date.toLocaleString()}</time>
+        <time class="event__date" datetime="2025-01-01T00:00:00+05:00">${new Date(date).toLocaleString()}</time>
         <div class="event__time-container">
-            ${distinction >= 86400000 || distinction <= -86400000 ? `<div class="event__big-date">${(distinction / 86400000).toFixed(0)} дней</div>` : '<div class="event__big-date"></div>'}
-            <div class="event__small-date">${distinction.toLocaleTimeString()}</div>
+            <div class="event__big-date"></div>
+            <div class="event__small-date"></div>
         </div>
     </div>`);
-        setInterval(() => {
-            let distinction = new Date(date - new Date());
-            distinction.setHours(distinction.getHours(), distinction.getMinutes() + distinction.getTimezoneOffset());
-            document.getElementsByClassName('event__small-date')[index].innerHTML = distinction.toLocaleTimeString();
-            document.getElementsByClassName('event__big-date')[index].innerHTML = +distinction >= 86400000 || +distinction <= -86400000 ? (distinction / 86400000).toFixed(0) + ' дней' : '';
-        }, 1000);
+        renderTime(date, index);
+        setInterval(renderTime, 1000, date, index);
     });
+}
+
+function renderTime(date, index) {
+    let distinction = new Date(Math.abs(date - Date.now()));
+    distinction.setHours(distinction.getHours(), distinction.getMinutes() + distinction.getTimezoneOffset());
+    document.getElementsByClassName('event__small-date')[index].innerHTML = (date < Date.now() ? '-' : '') + distinction.toLocaleTimeString();
+    document.getElementsByClassName('event__big-date')[index].innerHTML = +distinction >= 86400000 || +distinction <= -86400000 ? (distinction / 86400000).toFixed(0) + ' дней' : '';
 }
 
 renderEvents();
