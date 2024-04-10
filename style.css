@@ -14,6 +14,10 @@ button, input {
     cursor: pointer;
 }
 
+button:focus, input:focus {
+    outline: none;
+}
+
 main {
     max-width: 40rem;
     margin: 0 auto;
@@ -30,7 +34,13 @@ main {
     border: 0;
     border-radius: 50%;
     background-color: #C060A1;
-    transition: top .4s ease-in-out;
+    background-image: radial-gradient(rgba(192, 96, 161, 1) 10%, rgba(106, 9, 125, 1) 100%);
+    background-size: 300% 150%;
+    transition: all .4s ease-in-out;
+}
+
+.add-event__button:hover {
+    background-position: 100% 50%;
 }
 
 .add-event__button img {
@@ -80,6 +90,7 @@ main {
     box-sizing: border-box;
     color-scheme: dark;
     margin-top: 0.75rem;
+    border: 0;
 }
 
 .add-event__submit {
