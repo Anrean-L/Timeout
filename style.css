@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@200&display=swap');
 
 body {
-    font-family: Montserrat, Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     background-color: #000;
     margin: 0;
     min-height: 100vh;
-    font-weight: regular;
 }
 
 button, input {
@@ -99,9 +100,22 @@ main {
     border-radius: 10px;
 }
 
+.event__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
 .event__title {
     font-weight: 400;
     margin: 5px 0;
+}
+
+.event__remove {
+    flex: 0 0 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background-color: inherit;
 }
 
 .event__date {
@@ -115,6 +129,7 @@ main {
     border-radius: 10px;
     padding: 0.5rem 0.5rem 0;
     margin-top: 0.25rem;
+    font-family: 'Chivo Mono', monospace;
 }
 
 .event__big-date {
