@@ -1,5 +1,6 @@
 'use strict'
 
+let intervals = []
 let now = new Date()
 now.setHours(now.getHours(), now.getMinutes() - now.getTimezoneOffset(), 0, 0);
 let form = document.forms[0];
@@ -13,7 +14,6 @@ form.addEventListener('submit', (e) => {
     });
     localStorage.setItem('events', JSON.stringify(eventsList));
     form.parentNode.classList.toggle('add-event--opened');
-    document.getElementsByClassName('events-list')[0].innerHTML = ''
     renderEvents();
 });
 
@@ -22,6 +22,7 @@ function renderEvents() {
     document.querySelectorAll('.event').forEach(item => {
         item.remove();
     })
+    intervals.forEach(item => clearInterval(item));
     eventsList.forEach((item, index) => {
         let date = Date.parse(item.date);
         let distinction = new Date(Math.abs(date - Date.now()));
@@ -39,7 +40,7 @@ function renderEvents() {
         </div>
     </div>`);
         renderTime(date, index);
-        setInterval(renderTime, 1000, date, index);
+        intervals.push(setInterval(renderTime, 1000, date, index));
     });
 }
 
