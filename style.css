@@ -14,6 +14,10 @@ button, input {
     cursor: pointer;
 }
 
+button:focus, input:focus {
+    outline: none;
+}
+
 main {
     max-width: 40rem;
     margin: 0 auto;
@@ -30,7 +34,13 @@ main {
     border: 0;
     border-radius: 50%;
     background-color: #C060A1;
-    transition: top .4s ease-in-out;
+    background-image: radial-gradient(rgba(192, 96, 161, 1) 10%, rgba(106, 9, 125, 1) 100%);
+    background-size: 300% 150%;
+    transition: all .4s ease-in-out;
+}
+
+.add-event__button:hover {
+    background-position: 100% 50%;
 }
 
 .add-event__button img {
@@ -47,6 +57,7 @@ main {
     transform: translateY(100%);
     transition: transform .4s ease-in-out;
     border-radius: 30px 30px 0 0;
+    z-index: 100;
 }
 
 .add-event--opened {
@@ -80,6 +91,7 @@ main {
     box-sizing: border-box;
     color-scheme: dark;
     margin-top: 0.75rem;
+    border: 0;
 }
 
 .add-event__submit {
@@ -137,5 +149,24 @@ main {
 }
 
 .event__small-date {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 10vw, 3rem);
+}
+
+.no-events {
+    color: #FFF;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: min(calc(100vh - 540px), 30vh);
+    position: relative;
+}
+
+.no-events img {
+    display: block;
+    margin-top: 30px;
+    margin-inline: auto;
+    padding-left: 80px;
+}
+
+.events-list:has(.event) .no-events {
+    display: none;
 }

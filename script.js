@@ -6,7 +6,6 @@ let form = document.forms[0];
 form.date.value = now.toISOString().substring(0, now.toISOString().length - 5);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(form.checkValidity());
     let eventsList = JSON.parse(localStorage.getItem('events')) || [];
     eventsList.push({
         'title': form.title.value,
@@ -19,7 +18,6 @@ form.addEventListener('submit', (e) => {
 });
 
 function renderEvents() {
-    document.getElementsByClassName('events-list')[0].innerHTML = ''
     let eventsList = JSON.parse(localStorage.getItem('events')) || [];
     document.querySelectorAll('.event').forEach(item => {
         item.remove();
