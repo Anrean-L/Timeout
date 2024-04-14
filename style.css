@@ -148,5 +148,20 @@ main {
 }
 
 .event__small-date {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 10vw, 3rem);
+}
+
+.no-events {
+    color: #FFF;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: min(calc(100vh - 540px), 30vh);
+    position: relative;
+}
+
+.no-events img {
+    display: block;
+    margin-top: 30px;
+    margin-inline: auto;
+    padding-left: 80px;
 }

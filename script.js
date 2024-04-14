@@ -19,8 +19,8 @@ form.addEventListener('submit', (e) => {
 });
 
 function renderEvents() {
-    document.getElementsByClassName('events-list')[0].innerHTML = ''
     let eventsList = JSON.parse(localStorage.getItem('events')) || [];
+    if (eventsList.length > 0) document.getElementsByClassName('events-list')[0].innerHTML = ''
     eventsList.forEach((item, index) => {
         let date = Date.parse(item.date);
         let distinction = new Date(Math.abs(date - Date.now()));
