@@ -166,3 +166,7 @@ main {
     margin-inline: auto;
     padding-left: 80px;
 }
+
+.events-list:has(.event) .no-events {
+    display: none;
+}

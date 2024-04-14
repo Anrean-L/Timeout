@@ -6,7 +6,6 @@ let form = document.forms[0];
 form.date.value = now.toISOString().substring(0, now.toISOString().length - 5);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(form.checkValidity());
     let eventsList = JSON.parse(localStorage.getItem('events')) || [];
     eventsList.push({
         'title': form.title.value,
@@ -20,7 +19,9 @@ form.addEventListener('submit', (e) => {
 
 function renderEvents() {
     let eventsList = JSON.parse(localStorage.getItem('events')) || [];
-    if (eventsList.length > 0) document.getElementsByClassName('events-list')[0].innerHTML = ''
+    document.querySelectorAll('.event').forEach(item => {
+        item.remove()
+    })
     eventsList.forEach((item, index) => {
         let date = Date.parse(item.date);
         let distinction = new Date(Math.abs(date - Date.now()));
