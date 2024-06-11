@@ -1,0 +1,17 @@
+.event {
+    background-color: #F1D4D4;
+    padding: 0.625rem;
+    box-sizing: border-box;
+    margin-bottom: 0.625rem;
+    border-radius: 10px;
+}
+
+.event__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event__title {
+    font-weight: 400;
+    margin: 5px 0;
+}

@@ -1,8 +1,10 @@
 import './App.css';
-import DataContext from './contexts/DataContext';
-
+import Discovery from './components/Discovery';
+import DataFlow from './components/DataFlow';
+const isDiscovery = window.location.pathname.replace(/\//g, '') === 'discovery';
 function App() {
-	return <div className='App'></div>;
+	if (isDiscovery) return <Discovery />;
+	return <DataFlow />;
 }
 
 export default App;

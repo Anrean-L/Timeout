@@ -1,0 +1,17 @@
+.counter {
+    text-align: center;
+    background-color: #000;
+    color: #F1D4D4;
+    border-radius: 10px;
+    padding: 0.5rem 0.5rem 0;
+    margin-top: 0.25rem;
+    font-family: 'Chivo Mono', monospace;
+}
+
+.counter__days {
+    font-size: 1.25rem;
+}
+
+.counter__time {
+    font-size: clamp(2.5rem, 10vw, 3rem);
+}
