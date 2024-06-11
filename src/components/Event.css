@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin-bottom: 0.625rem;
     border-radius: 10px;
+    max-width: 700px;
 }
 
 .event__title-wrapper {
@@ -14,4 +15,8 @@
 .event__title {
     font-weight: 400;
     margin: 5px 0;
+}
+
+.event__date {
+    font-size: 0.875rem;
 }
