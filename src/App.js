@@ -3,7 +3,7 @@ import Discovery from './components/Discovery';
 import DataFlow from './components/DataFlow';
 import classNames from 'classnames';
 const isDiscovery = window.location.pathname.replace(/\//g, '') === 'discovery';
-const data = localStorage.getItem('data') || {};
+const data = JSON.parse(localStorage.getItem('data')) || {};
 function App() {
 	return (
 		<main

@@ -30,9 +30,11 @@ function Counter({ firstDate, secondDate }) {
 	);
 	return (
 		<div className='counter'>
-			<div className='counter__days'>
-				{days} {wordEnding(days)}
-			</div>
+			{days !== 0 ? (
+				<div className='counter__days'>
+					{days} {wordEnding(days)}
+				</div>
+			) : null}
 			<div className='counter__time'>
 				{hours}:{mins}:{seconds}
 			</div>
