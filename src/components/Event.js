@@ -9,7 +9,7 @@ function Event({ name, date, now }) {
 				<h2 className='event__title'>{name}</h2>
 			</div>
 			<time dateTime={date} className='event__date'>
-				{date.toLocaleString()}
+				{date.toLocaleString().slice(0, 10)}
 			</time>
 			<Counter firstDate={now} secondDate={date}></Counter>
 		</div>

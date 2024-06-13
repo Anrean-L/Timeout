@@ -20,7 +20,8 @@ const wordEnding = days => {
 
 function Counter({ firstDate, secondDate }) {
 	firstDate = firstDate === undefined ? Date() : firstDate;
-	const difference = secondDate - firstDate;
+	const difference =
+		secondDate - firstDate + secondDate.getTimezoneOffset() * 60000;
 	const days = Math.trunc(difference / 1000 / 60 / 60 / 24);
 	const hours = timePrepare((difference / 1000 / 60 / 60) % 24);
 	const mins = timePrepare((difference / 1000 / 60) % 60);
@@ -36,6 +37,7 @@ function Counter({ firstDate, secondDate }) {
 				</div>
 			) : null}
 			<div className='counter__time'>
+				{difference < 0 ? '-' : ''}
 				{hours}:{mins}:{seconds}
 			</div>
 		</div>
