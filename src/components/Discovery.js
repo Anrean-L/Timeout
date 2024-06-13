@@ -1,7 +1,10 @@
+import { useRef } from 'react';
+import Adding from './Adding';
 import Counter from './Counter';
 import Event from './Event';
 
 function Discovery() {
+	const form = useRef();
 	return (
 		<>
 			<h2>Counter</h2>
@@ -15,6 +18,7 @@ function Discovery() {
 				date={new Date('1995-12-17T03:23:00')}
 				now={new Date(0)}
 			></Event>
+			<Adding form={form} submit={() => alert('hello')}></Adding>
 		</>
 	);
 }

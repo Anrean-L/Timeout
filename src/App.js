@@ -3,6 +3,7 @@ import Discovery from './components/Discovery';
 import DataFlow from './components/DataFlow';
 import classNames from 'classnames';
 const isDiscovery = window.location.pathname.replace(/\//g, '') === 'discovery';
+const data = localStorage.getItem('data') || {};
 function App() {
 	return (
 		<main
@@ -11,7 +12,7 @@ function App() {
 				container: true,
 			})}
 		>
-			{isDiscovery ? <Discovery /> : <DataFlow />}
+			{isDiscovery ? <Discovery /> : <DataFlow initialData={data} />}
 		</main>
 	);
 }

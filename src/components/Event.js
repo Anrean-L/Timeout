@@ -1,5 +1,6 @@
 import Counter from './Counter';
 import './Event.css';
+import PropTypes from 'prop-types';
 
 function Event({ name, date, now }) {
 	return (
@@ -14,5 +15,11 @@ function Event({ name, date, now }) {
 		</div>
 	);
 }
+
+Event.propTypes = {
+	name: PropTypes.string,
+	date: PropTypes.instanceOf(Date),
+	now: PropTypes.instanceOf(Date),
+};
 
 export default Event;
