@@ -15,7 +15,14 @@ function Adding({ form, submit }) {
 			>
 				<img src={plusIcon} alt='значок плюсика' />
 			</button>
-			<form name='event' ref={form} onSubmit={submit}>
+			<form
+				name='event'
+				ref={form}
+				onSubmit={e => {
+					submit(e);
+					setOpened(false);
+				}}
+			>
 				<label className='adding__label'>
 					Введите название события
 					<input type='text' name='name' className='adding__input' required />
@@ -34,6 +41,7 @@ function Adding({ form, submit }) {
 					type='submit'
 					className='adding__input adding__submit'
 					value='создать'
+					disabled={!opened}
 				/>
 			</form>
 		</div>

@@ -21,3 +21,16 @@
 .event__date {
     font-size: 0.875rem;
 }
+
+.event__button {
+    flex: 0 0 2rem;
+    height: 2rem;
+    padding: .25rem;
+    border: 0;
+    background-color: inherit;
+}
+
+.event__button img {
+    height: 100%;
+    width: 100%;
+}
