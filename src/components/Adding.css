@@ -69,6 +69,10 @@
     border: 0;
 }
 
+.adding__input:focus-visible {
+    outline: #000000 solid 3px;
+}
+
 .adding__submit {
     padding: 0.5rem 1.75rem;
     width: inherit;

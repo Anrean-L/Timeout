@@ -2,13 +2,17 @@
     color: #FFF;
     font-size: 1.5rem;
     text-align: center;
-    margin-top: min(calc(100vh - 540px), 30vh);
+    padding-block-start: min(calc(100vh - 540px), 30vh);
     position: relative;
 }
 
 .no-events img {
     display: block;
-    margin-top: 30px;
+    margin-block-start: 30px;
     margin-inline: auto;
-    padding-left: 80px;
+    padding-inline-start: 80px;
+}
+
+.events-list {
+    padding: 3.125rem 1.25rem;
 }

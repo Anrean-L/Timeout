@@ -14,8 +14,11 @@ body {
 main {
     max-width: 40rem;
     margin: 0 auto;
-    padding: 3.125rem 0;
     position: relative;
+}
+
+p {
+    margin: 0;
 }
 
 .discovery>h2 {

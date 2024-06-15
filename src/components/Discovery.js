@@ -18,7 +18,12 @@ function Discovery() {
 				date={new Date('1995-12-17T03:23:00')}
 				now={new Date(0)}
 			></Event>
-			<Adding form={form} submit={() => alert('hello')}></Adding>
+			<Adding
+				form={form}
+				defaultOpened={true}
+				submit={() => alert('hello')}
+				cancel={() => alert('cancel')}
+			></Adding>
 		</>
 	);
 }

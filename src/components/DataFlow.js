@@ -9,8 +9,10 @@ import arrowImage from './../images/arrow.svg';
 
 function DataFlow({ initialData }) {
 	const [data, setData] = useState(initialData);
+	const [edit, setEdit] = useState(null);
 	const form = useRef();
 	const [now, setNow] = useState(new Date());
+	const [opened, setOpened] = useState(false);
 	function removeEvent(id) {
 		const newData = clone(data);
 		delete newData[id];
@@ -34,18 +36,23 @@ function DataFlow({ initialData }) {
 	return (
 		<>
 			{Object.keys(data).length ? (
-				Object.keys(data).map(id => {
-					return (
-						<Event
-							key={id}
-							name={data[id].name}
-							date={new Date(data[id].date)}
-							now={now}
-							edit={() => alert()}
-							remove={() => removeEvent(id)}
-						/>
-					);
-				})
+				<div className='events-list'>
+					{Object.keys(data).map(id => {
+						return (
+							<Event
+								key={id}
+								name={data[id].name}
+								date={new Date(data[id].date)}
+								now={now}
+								edit={() => {
+									setEdit(id);
+									setOpened(true);
+								}}
+								remove={() => removeEvent(id)}
+							/>
+						);
+					})}
+				</div>
 			) : (
 				<p class='no-events'>
 					Список событий пуст!
@@ -61,10 +68,13 @@ function DataFlow({ initialData }) {
 			)}
 			<Adding
 				form={form}
-				submit={e => {
-					e.preventDefault();
-					updateData(nanoid(), form.current);
+				submit={() => updateData(edit || nanoid(), form.current)}
+				opened={opened}
+				action={() => {
+					setEdit(null);
+					setOpened(!opened);
 				}}
+				prefilled={edit ? data[edit] : null}
 			/>
 		</>
 	);
